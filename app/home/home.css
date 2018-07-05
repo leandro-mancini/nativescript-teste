@@ -1,0 +1,39 @@
+.calendario-dia{
+    color: #707070;
+    font-size: 14;
+    text-align: center;
+    margin: 20 0;
+}
+
+ListView {
+    separator-color: transparent;
+    padding: 0;
+    margin: 50 0 0 0;
+}
+
+.list-group .servico{
+    padding: 0 15;
+}
+
+.list-group .codigo{
+    margin: 0 18;
+    font-weight: bold;
+}
+
+.list-group .horario{
+    color: #707079;
+    font-size: 10;
+    padding: 29 0;
+}
+
+.list-group .box-servico{
+    background: #26AAFF;
+    border-radius: 50;
+    margin: 0 10;
+    padding: 6 8;
+    color: #fff;
+}
+
+.list-group .box-servico.danger{
+    background: #FF6759;
+}

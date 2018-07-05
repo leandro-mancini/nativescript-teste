@@ -1,0 +1,52 @@
+<ActionBar title="Escala diária">
+    <ActionItem icon="res://bell_53" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <ActivityIndicator class="activity-indicator" busy="true" *ngIf="loading"></ActivityIndicator>
+
+    <FlexboxLayout flexDirection="row" justifyContent="center" class="calendario-dia">
+        <Label text="11 de março de 2018"></Label>
+    </FlexboxLayout>
+
+    <ListView [items]="escalaServicoViewModel" class="list-group" *ngIf="!loading">
+        <ng-template let-item="item">
+            <FlexboxLayout flexDirection="column" alignContent="center" class="servico">
+                <FlexboxLayout flexDirection="row" alignContent="center">
+                    <StackLayout orientation="vertical">
+                        <FlexboxLayout flexGrow="1" alignContent="center" justifyContent="center">
+                            <Label class="horario" [text]="item.horaInicio | date : 'HH:mm'"></Label>
+                        </FlexboxLayout>
+                    </StackLayout>
+
+                    <StackLayout flexGrow="1" orientation="vertical">
+                        <Label class="codigo" [text]="item.codigo"></Label>
+                        <FlexboxLayout flexGrow="1" alignContent="center" justifyContent="center" class="box-servico" [ngClass]="{ 'danger' : item.indisponibilidade }">
+                            <StackLayout flexGrow="1" orientation="vertical">
+                                <Label *ngIf="!item.veiculo.tipoInformacao; else veiculoInfo" fontSize="14" [text]="item.veiculo.prefixo"></Label>
+                                <ng-template #veiculoInfo>
+                                    <Label fontSize="14" text="Buraco"></Label>
+                                </ng-template>
+                            </StackLayout>
+                            <StackLayout *ngFor="let f of item.funcionarios" flexGrow="1" orientation="vertical">
+                                <StackLayout *ngIf="!f.tipoInformacao; else funcionarioInfo">
+                                    <Label fontSize="14" [text]="f.chapa"></Label>
+                                </StackLayout>
+            
+                                <ng-template #funcionarioInfo>
+                                    <Label fontSize="14" text="Buraco"></Label>
+                                </ng-template>
+                            </StackLayout>
+                        </FlexboxLayout>
+                    </StackLayout>
+
+                    <StackLayout orientation="vertical">
+                        <FlexboxLayout flexGrow="1" alignContent="center" justifyContent="center">
+                            <Label class="horario" [text]="item.horaFim | date : 'HH:mm'"></Label>
+                        </FlexboxLayout>
+                    </StackLayout>
+                </FlexboxLayout>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>

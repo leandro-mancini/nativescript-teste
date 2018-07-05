@@ -1,0 +1,18 @@
+<ActionBar title="Plantonistas">
+    <ActionItem icon="res://bell_53" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <ListView [items]="items" class="list-group">
+        <ng-template let-item="item">
+            <FlexboxLayout flexDirection="row" alignContent="center" class="p-15">
+                <Label color="#B1B2B3" fontSize="32" text="&#xf207;" class="fa m-r-15"></Label>
+                <StackLayout flexGrow="1" orientation="vertical">
+                    <Label color="#161618" fontSize="14" [text]="item.name"></Label>
+                    <Label color="#95989A" fontSize="12" [text]="item.description"></Label>
+                </StackLayout>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>
+

@@ -1,0 +1,15 @@
+<TabView androidTabsPosition="bottom">
+
+    <StackLayout *tabItem="{iconSource: 'res://preferences'}">
+        <page-router-outlet name="homeTab"></page-router-outlet>
+    </StackLayout>
+    
+    <StackLayout *tabItem="{iconSource: 'res://search'}">
+        <page-router-outlet name="searchTab"></page-router-outlet>
+    </StackLayout>
+    
+    <StackLayout *tabItem="{iconSource: 'res://ic_airline_seat_recline_normal_48px'}">
+        <page-router-outlet name="browseTab"></page-router-outlet>
+    </StackLayout>
+
+</TabView>

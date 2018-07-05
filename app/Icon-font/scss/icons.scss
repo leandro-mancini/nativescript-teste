@@ -1,0 +1,38 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$icon-bell-53: unicode(ea02);
+$icon-preferences: unicode(ea03);
+$icon-ic_transfer_within_a_station_48px: unicode(ea06);
+$icon-ic_check_48px: unicode(ea07);
+$icon-ic_arrow_back_48px: unicode(ea08);
+$icon-ic_airline_seat_recline_normal_48px: unicode(ea09);
+
+.icon-bell-53::before {
+  content: $icon-bell-53;
+}
+
+.icon-preferences::before {
+  content: $icon-preferences;
+}
+
+.icon-ic_transfer_within_a_station_48px::before {
+  content: $icon-ic_transfer_within_a_station_48px;
+}
+
+.icon-ic_check_48px::before {
+  content: $icon-ic_check_48px;
+}
+
+.icon-ic_arrow_back_48px::before {
+  content: $icon-ic_arrow_back_48px;
+}
+
+.icon-ic_airline_seat_recline_normal_48px::before {
+  content: $icon-ic_airline_seat_recline_normal_48px;
+}
+
