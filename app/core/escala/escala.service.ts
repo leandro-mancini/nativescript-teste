@@ -10,6 +10,6 @@ export class MyHttpGetService {
 
     obterEscala() {
         // tslint:disable-next-line:max-line-length
-        return this.http.get(this.serverUrl + "EscalaPadrao/ObterEscala?idEscalaPadrao=15&datas=2018-07-12T03:00:00.000Z");
+        return this.http.get(this.serverUrl + "EscalaPadrao/ObterEscala?idEscalaPadrao=3&datas=2018-07-13T03:00:00.000Z");
     }
 }

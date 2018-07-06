@@ -1,6 +1,7 @@
-<ActionBar title="Escala diária">
-    <ActionItem icon="res://bell_53" ios.position="right"></ActionItem>
-</ActionBar>
+<AbsoluteLayout>
+    <StackLayout left="10" top="5" backgroundColor="#0099CC"></StackLayout>
+</AbsoluteLayout>
+
 
 <GridLayout class="page page-content">
     <ActivityIndicator class="activity-indicator" busy="true" *ngIf="loading"></ActivityIndicator>
@@ -14,36 +15,30 @@
             <FlexboxLayout flexDirection="column" alignContent="center" class="servico">
                 <FlexboxLayout flexDirection="row" alignContent="center">
                     <StackLayout orientation="vertical">
-                        <FlexboxLayout flexGrow="1" alignContent="center" justifyContent="center">
-                            <Label class="horario" [text]="item.horaInicio | date : 'HH:mm'"></Label>
-                        </FlexboxLayout>
+                        <Label class="horario" [text]="item.horaInicio | date : 'HH:mm'"></Label>
                     </StackLayout>
 
                     <StackLayout flexGrow="1" orientation="vertical">
                         <Label class="codigo" [text]="item.codigo"></Label>
-                        <FlexboxLayout flexGrow="1" alignContent="center" justifyContent="center" class="box-servico" [ngClass]="{ 'danger' : item.indisponibilidade }">
-                            <StackLayout flexGrow="1" orientation="vertical">
-                                <Label *ngIf="!item.veiculo.tipoInformacao; else veiculoInfo" fontSize="14" [text]="item.veiculo.prefixo"></Label>
-                                <ng-template #veiculoInfo>
-                                    <Label fontSize="14" text="Buraco"></Label>
-                                </ng-template>
+
+                        <StackLayout orientation="horizontal" class="box-servico" [ngClass]="{ 'danger' : item.indisponibilidade }">
+                            <StackLayout orientation="horizontal">
+                                <Image src="res://ic_train_48px" *ngIf="item.veiculo" stretch="none"></Image>
+                                <Label [text]="item.veiculo.prefixo"></Label>
                             </StackLayout>
-                            <StackLayout *ngFor="let f of item.funcionarios" flexGrow="1" orientation="vertical">
-                                <StackLayout *ngIf="!f.tipoInformacao; else funcionarioInfo">
-                                    <Label fontSize="14" [text]="f.chapa"></Label>
-                                </StackLayout>
-            
-                                <ng-template #funcionarioInfo>
-                                    <Label fontSize="14" text="Buraco"></Label>
-                                </ng-template>
-                            </StackLayout>
-                        </FlexboxLayout>
+
+                            <!-- <StackLayout *ngFor="let f of item.funcionarios" orientation="horizontal">
+                                <Image src="res://ic_train_48px" stretch="none"></Image>
+                                <Label [text]="f.chapa"></Label>
+                            </StackLayout> -->
+
+                            <!-- <Image src="res://ic_airline_seat_recline_normal_48px" stretch="none"></Image>
+                            <Image src="res://ic_monetization_on_48px" stretch="none"></Image> -->
+                        </StackLayout>
                     </StackLayout>
 
                     <StackLayout orientation="vertical">
-                        <FlexboxLayout flexGrow="1" alignContent="center" justifyContent="center">
-                            <Label class="horario" [text]="item.horaFim | date : 'HH:mm'"></Label>
-                        </FlexboxLayout>
+                        <Label class="horario" [text]="item.horaFim | date : 'HH:mm'"></Label>
                     </StackLayout>
                 </FlexboxLayout>
             </FlexboxLayout>
